@@ -26,19 +26,36 @@ body {
   background-image: url('assets/alarm.svg');
 }
 
+.reset-button {
+  min-width: min-content;
+  padding: 20px;
+  border: 1px solid grey;
+  background-color: firebrick;
+  cursor: pointer;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: rgb(61, 61, 61);
+}
+
 @keyframes ring {
   0% {
     transform: rotateZ(0deg);
   }
+
   25% {
     transform: rotateZ(5deg);
   }
+
   50% {
     transform: rotateZ(0deg);
   }
+
   75% {
     transform: rotateZ(-5deg);
   }
+
   100% {
     transform: rotateZ(0deg);
   }
