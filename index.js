@@ -9,11 +9,25 @@ const userTime =
 const timerID = setTimeout(ring, userTime);
 
 function ring() {
-  alarmElm.classList.add('alarm--ring');
-  audioElm.play();
+  if (userTime > 0) {
+    alarmElm.classList.add('alarm--ring');
+    audioElm.play();
+  } else {
+    alert('Zadejte číslo vyšší než 0. Použijte číslice a ne slova.');
+  }
 }
 
 function stopCountdown() {
-  clearTimeout(timerID);
-  alert('Zrušeno');
+  if (userTime !== 0) {
+    clearTimeout(timerID);
+    toastTrigger();
+  }
+}
+
+function toastTrigger() {
+  const toastElm = document.querySelector('.toast');
+  toastElm.classList.add('show');
+  setTimeout(() => {
+    toastElm.classList.remove('show');
+  }, 2500);
 }

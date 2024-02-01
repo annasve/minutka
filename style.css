@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700&display=swap');
 
+:root {
+  --text-color: rgb(61, 61, 61)
+}
+
 * {
   box-sizing: border-box;
 }
@@ -17,6 +21,7 @@ body {
   width: 30rem;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 }
 
 .alarm {
@@ -24,6 +29,7 @@ body {
   height: 30rem;
   background-size: contain;
   background-image: url('assets/alarm.svg');
+  position: relative;
 }
 
 .reset-button {
@@ -33,10 +39,9 @@ body {
   background-color: firebrick;
   cursor: pointer;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 2rem;
-  color: rgb(61, 61, 61);
+  color: var(--text-color);
 }
 
 @keyframes ring {
@@ -63,4 +68,39 @@ body {
 
 .alarm--ring {
   animation: ring 100ms 50;
+}
+
+.toast {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #dd4b4b;
+  text-align: center;
+  padding: 15px;
+}
+
+.toast--message {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.show {
+  visibility: visible;
+  animation: fade 1.2s ease-in-out forwards;
+}
+
+@keyframes fade {
+  from {
+    transform: translate(0, 50px);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }
